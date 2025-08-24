@@ -1,0 +1,32 @@
+# Source files
+src/
+tsconfig.json
+
+# Development files
+*.log
+.env
+.env.*
+
+# Test files
+test-package.sh
+
+# IDE files
+.vscode/
+.idea/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Git files
+.git/
+.gitignore
+
+# Documentation (keep README.md)
+docs/
+*.md
+!README.md
+
+# Build artifacts (we want the build folder in the package)
+node_modules/
+coverage/

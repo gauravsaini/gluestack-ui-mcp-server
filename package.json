@@ -1,0 +1,71 @@
+{
+  "name": "gluestack-ui-mcp-server",
+  "version": "1.0.3",
+  "description": "A Model Context Protocol (MCP) server for Gluestack UI components, providing AI assistants with access to component source code, demos, and metadata.",
+  "type": "module",
+  "main": "./build/index.js",
+  "bin": {
+    "gluestack-mcp": "build/index.js"
+  },
+  "files": [
+    "build/**/*",
+    "README.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "build": "tsc",
+    "clean": "rm -rf build",
+    "prepublishOnly": "npm run clean && npm run build && chmod +x build/index.js",
+    "publish": "npm publish --access public",
+    "start": "node build/index.js",
+    "dev": "tsc && node build/index.js",
+    "test": "chmod +x tests/test-package.sh && ./tests/test-package.sh",
+    "test:local": "npm run build && GLUESTACK_PATH=../gluestack-ui node tests/test-all-tools.js",
+    "test:github": "npm run build && node tests/test-github-mode.js",
+    "test:both": "npm run build && node tests/test-both-modes.js",
+    "test:components": "npm run build && node tests/test-component-count.js",
+    "test:comprehensive": "npm run build && npm run test && node tests/test-both-modes.js"
+  },
+  "keywords": [
+    "mcp",
+    "model-context-protocol",
+    "gluestack",
+    "gluestack-ui",
+    "ui-components",
+    "react-native",
+    "react",
+    "typescript",
+    "ai-tools",
+    "claude",
+    "copilot",
+    "nativewind"
+  ],
+  "author": "Gaurav Saini",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gauravsaini/gluestack-ui-mcp-server.git"
+  },
+  "bugs": {
+    "url": "https://github.com/gauravsaini/gluestack-ui-mcp-server/issues"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.16.0",
+    "axios": "^1.8.4",
+    "cheerio": "^1.0.0",
+    "zod": "^3.24.2",
+    "winston": "^3.15.0",
+    "joi": "^17.13.3",
+    "uuid": "^10.0.0",
+    "glob": "^10.3.10",
+    "fast-glob": "^3.3.2"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.5",
+    "@types/uuid": "^10.0.0",
+    "typescript": "^5.7.2"
+  }
+}
