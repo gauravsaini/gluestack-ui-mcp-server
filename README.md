@@ -399,6 +399,7 @@ gluestack-ui-mcp-server/
 - **Flexible Setup**: Supports custom Gluestack UI installations
 - **Comprehensive Logging**: Detailed debugging and monitoring
 - **Error Handling**: Graceful failures with helpful error messages
+- **Security Hardened**: Package overrides and dependency locking for enhanced security
 - **Type Safety**: Full TypeScript support throughout
 
 ## 🎯 Usage Examples

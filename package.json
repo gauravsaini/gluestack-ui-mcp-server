@@ -17,6 +17,9 @@
     "clean": "rm -rf build",
     "prepublishOnly": "npm run clean && npm run build && chmod +x build/index.js",
     "publish": "npm publish --access public",
+    "publish:patch": "npm version patch && npm run publish",
+    "publish:minor": "npm version minor && npm run publish",
+    "publish:major": "npm version major && npm run publish",
     "start": "node build/index.js",
     "dev": "tsc && node build/index.js",
     "test": "chmod +x tests/test-package.sh && ./tests/test-package.sh",
@@ -24,7 +27,9 @@
     "test:github": "npm run build && node tests/test-github-mode.js",
     "test:both": "npm run build && node tests/test-both-modes.js",
     "test:components": "npm run build && node tests/test-component-count.js",
-    "test:comprehensive": "npm run build && npm run test && node tests/test-both-modes.js"
+    "test:comprehensive": "npm run build && npm run test && node tests/test-both-modes.js",
+    "version": "git add package.json package-lock.json && git commit -m \"chore: bump version to %s\" && git tag v%s",
+    "postversion": "git push && git push --tags"
   },
   "keywords": [
     "mcp",
@@ -67,5 +72,11 @@
     "@types/node": "^22.10.5",
     "@types/uuid": "^10.0.0",
     "typescript": "^5.7.2"
+  },
+  "overrides": {
+    "safer-buffer": "^2.1.2",
+    "boolbase": "^1.0.0",
+    "encoding-sniffer": "npm:html-encoding-sniffer@^4.0.0",
+    "es-define-property": "npm:@socketregistry/es-define-property@^1.0.7"
   }
 }
