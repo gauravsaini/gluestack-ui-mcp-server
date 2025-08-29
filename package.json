@@ -1,6 +1,6 @@
 {
   "name": "gluestack-ui-mcp-server",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "A Model Context Protocol (MCP) server for Gluestack UI components, providing AI assistants with access to component source code, demos, and metadata.",
   "type": "module",
   "main": "./build/index.js",
@@ -28,7 +28,6 @@
     "test:both": "npm run build && node tests/test-both-modes.js",
     "test:components": "npm run build && node tests/test-component-count.js",
     "test:comprehensive": "npm run build && npm run test && node tests/test-both-modes.js",
-    "version": "git add package.json package-lock.json && git commit -m \"chore: bump version to %s\" && git tag v%s",
     "postversion": "git push && git push --tags"
   },
   "keywords": [
